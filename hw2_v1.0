@@ -1,0 +1,13 @@
+#Project Euler
+
+lst = [1, 2] 
+x = 0
+while x < 10:
+	x = lst [-2] + lst [-1]
+	lst.append(x)
+print (lst) #числа Фибоначчи
+
+b = [x for x in lst if x%2 == 0]
+print (b) #четные числа Фибоначчи 
+
+print (sum(b)) #сумма четных чисел Фибоначчи
