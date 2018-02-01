@@ -1,0 +1,119 @@
+def arab_2_roman(num) : #сама программа
+  
+  let = str(num)
+  
+  if len(let) >= 1 :
+    one = ones(let[-1])
+  else :
+    one = ''
+    
+  if len(let) >= 2 :
+    two = tens(let[-2])
+  else :
+    two = ''
+  
+  if len(let) >= 3 :
+    three = hunds(let[-3])
+  else: 
+    three = ''
+    
+  if len(let) == 4 :
+    four = thous(let[-4])
+  else :
+    four = ''
+    
+  return four + three + two + one
+  
+def ones(let) : #вспомогательные программы, были использованы ранее
+  if let == '1':
+    return 'I'
+  elif let == '2':
+    return 'II'
+  elif let == '3':
+    return 'III'  
+  elif let == '4':
+    return 'IV'  
+  elif let == '5':
+    return 'V'
+  elif let == '6':
+    return 'VI'    
+  elif let == '7':
+    return 'VII' 
+  elif let == '8':
+    return 'VIII'    
+  elif let == '9':
+    return 'IX'
+  else:
+    return ''
+
+def tens(let) :
+  if let == '1':
+    return 'X'
+  elif let == '2':
+    return 'XX'
+  elif let == '3':
+    return 'XXX'  
+  elif let == '4':
+    return 'XL'  
+  elif let == '5':
+    return 'L'
+  elif let == '6':
+    return 'LX'    
+  elif let == '7':
+    return 'LXX' 
+  elif let == '8':
+    return 'LXXX'    
+  elif let == '9':
+    return 'XC'
+  else:
+    return ''    
+
+def hunds(let) :
+  if let == '1':
+    return 'C'
+  elif let == '2':
+    return 'CC'
+  elif let == '3':
+    return 'CCC'  
+  elif let == '4':
+    return 'CD'  
+  elif let == '5':
+    return 'D'
+  elif let == '6':
+    return 'DC'    
+  elif let == '7':
+    return 'DCC' 
+  elif let == '8':
+    return 'DCCC'    
+  elif let == '9':
+    return 'CM'
+  else:
+    return ''
+    
+def thous(let) :
+  if let == '1':
+    return 'M'
+  elif let == '2':
+    return 'MM'
+  elif let == '3':
+    return 'MMM'  
+  elif let == '4':
+    return '/normal only to 3999/'+' '+'M'*4 
+  elif let == '5':
+    return '/normal only to 3999/'+' '+'M'*5 
+  elif let == '6':
+    return '/normal only to 3999/'+' '+'M'*6   
+  elif let == '7':
+    return '/normal only to 3999/'+' '+'M'*7 
+  elif let == '8':
+    return '/normal only to 3999/'+' '+'M'*8     
+  elif let == '9':
+    return '/normal only to 3999/'+' '+'M'*9  
+  else:
+    return ''
+    
+print ('49',arab_2_roman(49))   
+print ('99',arab_2_roman(99))  
+print ('4444',arab_2_roman(4444))  
+print ('2018',arab_2_roman(2018))  
+print ('3999',arab_2_roman(3999))  
