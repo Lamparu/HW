@@ -1,0 +1,12 @@
+lst = [1, 2] 
+x = 0
+while x < 4*10**6:  #числа Фибоначчи
+	x = lst [-2] + lst [-1]
+	lst.append(x)
+
+b = [x for x in lst if x%2 == 0]  #четные числа Фибоначчи 
+
+tri = [x**3 for x in b]
+dva = [x**2 for x in b]
+
+print ( sum(tri)/sum(dva) )
