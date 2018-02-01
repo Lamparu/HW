@@ -1,0 +1,27 @@
+dict = {'M': 1000, 'D': 500, 'C': 100, 'L': 50, 'X':10, 'V':5, 'I':1}
+
+def rome_2_arab(rome):
+  
+  romic = []
+  n = 0
+    
+  for i in range(len(rome)):
+    
+    romic.append (dict[rome[i]])
+  
+  for i in range(len(romic) - 1):
+     
+    if romic[i] < romic[i+1]:
+      n -= romic[i]
+     
+    else:
+      n += romic[i]
+    
+  n += romic [-1] 
+  return n 
+
+print ('XLIX', rome_2_arab('XLIX'))
+print ('XCIX' , rome_2_arab('XCIX'))
+print ('MMXVIII', rome_2_arab('MMXVIII'))
+print ('MCMXCIX', rome_2_arab('MCMXCIX'))
+print ('MDCCCLXXXVIII', rome_2_arab('MDCCCLXXXVIII'))
