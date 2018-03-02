@@ -1,22 +1,57 @@
 import math
+
+e = 1e-6
+k = 0.1
+ans = []
+
 def f(x):
-    return abs(math.sin(x))-2*x
+  return abs(math.sin(x)) - k*x
 
-x1 = 0.0
-x2 = 1.1
-e = 0.00001
+if k == 0:
+  print ("Бесконечно много решений с шагом pi от 0 в обе стороны")
 
-y1 = f(x1)
-y2 = f(x2)
-
-while abs(x2-x1) > e:
-    x3=(x1+x2)/2.0
-    y3=f(x3)
-    if y1*y3<0.0:
-        x2 = x3
-        y2 = y3
-    else: 
-        x1 = x3
-        y1 = y3
-
-print (x3,y3)
+elif k > 0:
+  
+  a = 0.0
+  b = 1/k
+  i = math.pi/2
+  while a < b:
+    while abs(a-i)<= e:
+      x = (a+i)/2.0
+      y = f(x)
+      if y*f(a) < 0.0:
+        x = i
+        y = f(i) 
+        
+      else: 
+        x = a
+        y = f(a) 
+          
+      ans.append(x)
+      a = a + math.pi/2
+      i = i + math.pi/2
+    
+else:
+  
+  b = 0.0
+  a = 1/k
+  i = math.pi/2
+  while a < b:
+    while abs(a-i)> e:
+      x = (a+i)/2.0
+      y = f(x)
+      if y*f(a) < 0.0:
+        x = i
+        y = f(i) 
+      else: 
+        x = a
+        y = f(a)
+      
+      ans.append(x)    
+      a = a + math.pi/2
+      b = b + math.pi/2
+      
+print (ans)
+"""Но она не рабтает, уходя на бесконечность ¯\_(ツ)_/¯
+Зато работает с k = 0
+Честно, я пыталась """
