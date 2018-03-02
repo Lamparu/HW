@@ -1,0 +1,36 @@
+import numpy as np
+import cmath
+import matplotlib.pyplot as plt
+%matplotlib inline
+def Newt(a, n):
+    for i in range(n):
+        a -= (a**3 - 1) / (3*a**2)
+    return a
+
+
+x = np.arange(-1, 1, 0.001)
+y = np.arange(-1, 1, 0.001)
+xg = []
+yg = []
+xy = []
+yy = []
+xr = []
+yr = []
+for xi in x:
+    for yi in y:
+        k = Newt(xi + yi * 1j, 10).imag
+        if k <= -0.45:
+            xg.append(xi)
+            yg.append(yi)
+        elif k >= 0.45:
+            xy.append(xi)
+            yy.append(yi)
+        else:
+            xr.append(xi)
+            yr.append(yi)
+                
+figure, regular_plot = plt.subplots()
+regular_plot.plot(xg, yg, 'g,')
+regular_plot.plot(xy, yy, 'y,')
+regular_plot.plot(xr, yr, 'r,')
+plt.show()
